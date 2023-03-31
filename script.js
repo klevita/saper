@@ -15,17 +15,38 @@ class Block {
       }
       this.state = "opened";
       render();
+      checkWin();
     }
   }
 }
 let els;
+let minesCount;
 function setEls() {
   els = [];
+  minesCount = 0;
   for (let i = 0; i < 20; i++) {
     els.push([]);
     for (let j = 0; j < 20; j++) {
       els[i].push(new Block());
+      if(els[i][j].hasBomb){
+        minesCount++;
+      }
     }
+  }
+}
+
+function checkWin() {
+  let count = 0
+  els.forEach((v, i) => {
+    v.forEach((val, j) => {
+      if(val.state==="opened"){
+        count++
+      }
+    });
+  });
+  if(count + minesCount === 400){
+    alert("U WON BADASS!!!")
+    init()
   }
 }
 
