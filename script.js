@@ -8,7 +8,7 @@ class Block {
     console.log(this.count);
     if (this.hasBomb) {
       alert("blown u fool");
-      init()
+      init();
     } else {
       if (this.count === 0) {
         recursiveOpen(i, j);
@@ -18,11 +18,14 @@ class Block {
     }
   }
 }
-let els = [];
-for (let i = 0; i < 20; i++) {
-  els.push([]);
-  for (let j = 0; j < 20; j++) {
-    els[i].push(new Block());
+let els;
+function setEls() {
+  els = [];
+  for (let i = 0; i < 20; i++) {
+    els.push([]);
+    for (let j = 0; j < 20; j++) {
+      els[i].push(new Block());
+    }
   }
 }
 
@@ -106,6 +109,7 @@ function recursiveOpen(i, j) {
   }
 }
 function init() {
+  setEls();
   els.forEach((v, i) => {
     v.forEach((val, j) => {
       if (val.hasBomb) {
