@@ -13,11 +13,14 @@ body {
     background-color: beige;
     display: flex;
     flex-wrap: wrap;
-    width:400px;
+    width:100vw;
+    height:100vw;
+    max-height: 80vh;
+    max-width: 80vh;
   }
   .base{
-    width:18px;
-    height:18px;
+    width:calc(5% - 2px);
+    height:calc(5% - 2px);
     margin:1px;
     display: flex;
     align-items: center;
