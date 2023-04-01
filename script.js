@@ -28,7 +28,7 @@ function setEls() {
     els.push([]);
     for (let j = 0; j < 20; j++) {
       els[i].push(new Block());
-      if(els[i][j].hasBomb){
+      if (els[i][j].hasBomb) {
         minesCount++;
       }
     }
@@ -36,17 +36,17 @@ function setEls() {
 }
 
 function checkWin() {
-  let count = 0
+  let count = 0;
   els.forEach((v, i) => {
     v.forEach((val, j) => {
-      if(val.state==="opened"){
-        count++
+      if (val.state === "opened") {
+        count++;
       }
     });
   });
-  if(count + minesCount === 400){
-    alert("U WON BADASS!!!")
-    init()
+  if (count + minesCount === 400) {
+    alert("U WON BADASS!!!");
+    init();
   }
 }
 
@@ -185,6 +185,7 @@ function render() {
       const el = document.createElement("div");
       el.classList.add(val.state);
       el.classList.add("base");
+      if(val.state === "opened")
       if (!val.hasBomb) {
         if (val.count) el.innerHTML = "" + val.count;
       } else {
